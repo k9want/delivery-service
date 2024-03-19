@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.delivery.api.common.error.ErrorCode;
+import org.delivery.api.common.error.ErrorCodeIfs;
 
 @Data
 @NoArgsConstructor
@@ -17,12 +19,36 @@ public class Result {
 
     private String resultDescription;
 
-    public static Result ok() {
+    public static Result OK() {
         return Result.builder()
-            .resultCode(200)
-            .resultMessage("OK")
-            .resultDescription("성공")
+            .resultCode(ErrorCode.OK.getErrorCode())
+            .resultMessage(ErrorCode.OK.getDescription())
+            .resultDescription("성공") // 추후 상세메시지로 사용
             .build();
     }
 
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs) {
+        return Result.builder()
+            .resultCode(errorCodeIfs.getErrorCode())
+            .resultMessage(errorCodeIfs.getDescription())
+            .resultDescription("성공") // 추후 상세메시지로 사용
+            .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs, Throwable tx) {
+        return Result.builder()
+            .resultCode(errorCodeIfs.getErrorCode())
+            .resultMessage(errorCodeIfs.getDescription())
+            .resultDescription(
+                tx.getLocalizedMessage()) // tx.getLocalizedMessage는 서버에 모든 stack trace가 내려가기에 비추 (일단은 넘어가자)
+            .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs, String description) {
+        return Result.builder()
+            .resultCode(errorCodeIfs.getErrorCode())
+            .resultMessage(errorCodeIfs.getDescription())
+            .resultDescription(description)
+            .build();
+    }
 }
