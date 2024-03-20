@@ -25,9 +25,12 @@ public class AccountApiController {
             .registeredAt(LocalDateTime.now())
             .build();
 
+//        String str = "안녕하세요";
+//        Integer age = Integer.parseInt(str);
+
         return Api.OK(response);
     }
-    
+
     @GetMapping("/me2")
     public Api<Object> m2e() {
         AccountMeResponse response = AccountMeResponse.builder()

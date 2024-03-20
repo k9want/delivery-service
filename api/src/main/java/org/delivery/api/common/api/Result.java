@@ -31,7 +31,7 @@ public class Result {
         return Result.builder()
             .resultCode(errorCodeIfs.getErrorCode())
             .resultMessage(errorCodeIfs.getDescription())
-            .resultDescription("성공") // 추후 상세메시지로 사용
+            .resultDescription("에러 발생") // 추후 상세메시지로 사용
             .build();
     }
 
