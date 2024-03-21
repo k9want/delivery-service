@@ -14,17 +14,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.SecretKey;
-import org.antlr.v4.runtime.Token;
-import org.delivery.api.common.error.ErrorCode;
 import org.delivery.api.common.error.TokenErrorCode;
 import org.delivery.api.common.exception.ApiException;
-import org.delivery.api.domain.token.ifs.TokenHelper;
+import org.delivery.api.domain.token.ifs.TokenHelperIfs;
 import org.delivery.api.domain.token.model.TokenDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtTokenHelper implements TokenHelper {
+public class JwtTokenHelper implements TokenHelperIfs {
 
     @Value("${token.secret.key}")
     private String secretKey;
