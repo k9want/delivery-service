@@ -53,4 +53,10 @@ public class UserBusiness {
         TokenResponse tokenResponse = tokenBusiness.issueToken(userEntity);
         return tokenResponse;
     }
+
+    public UserResponse me(Long userId) {
+        UserEntity userEntity = userService.getUserWithThrow(userId);
+        UserResponse response = userConverter.toResponse(userEntity);
+        return response;
+    }
 }
