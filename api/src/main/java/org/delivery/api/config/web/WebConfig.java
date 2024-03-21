@@ -2,8 +2,10 @@ package org.delivery.api.config.web;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.delivery.api.common.resolver.UserSessionResolver;
 import org.delivery.api.interceptor.AuthorizationInterceptor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     private final AuthorizationInterceptor authorizationInterceptor;
+    private final UserSessionResolver userSessionResolver;
 
     private List<String> OPEN_API = List.of(
         "/open-api/**"
@@ -35,5 +38,10 @@ public class WebConfig implements WebMvcConfigurer {
             .excludePathPatterns(OPEN_API)
             .excludePathPatterns(DEFAULT_EXCLUDE)
             .excludePathPatterns(SWAGGER);
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(userSessionResolver);
     }
 }
