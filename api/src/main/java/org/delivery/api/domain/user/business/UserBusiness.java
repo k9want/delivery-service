@@ -2,6 +2,7 @@ package org.delivery.api.domain.user.business;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.common.annotation.Business;
+import org.delivery.api.domain.user.controller.model.UserLoginRequest;
 import org.delivery.api.domain.user.controller.model.UserRegisterRequest;
 import org.delivery.api.domain.user.controller.model.UserResponse;
 import org.delivery.api.domain.user.converter.UserConverter;
@@ -35,5 +36,19 @@ public class UserBusiness {
             .map(userService::register)
             .map(userConverter::toResponse)
             .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "request null"));*/
+    }
+
+    /**
+     * 로그인 로직 1. email. passowrd를 가지고 사용자 체크 2. user entity 로그인 확인 3. token 생성 4. token response
+     * return
+     *
+     * @return
+     */
+    public UserResponse login(UserLoginRequest request) {
+        UserEntity userEntity = userService.login(request.getEmail(), request.getPassword());
+        // 사용자 없으면 throw
+
+        // 있다면? todo 토큰 생성
+        return userConverter.toResponse(userEntity);
     }
 }
