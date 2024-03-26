@@ -3,6 +3,7 @@ package org.deliveryservice.storeadmin.domain.user.converter;
 import lombok.RequiredArgsConstructor;
 import org.delivery.db.store.StoreEntity;
 import org.delivery.db.storeuser.StoreUserEntity;
+import org.deliveryservice.storeadmin.domain.user.authorization.model.UserSession;
 import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserRegisterRequest;
 import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserResponse;
 import org.springframework.stereotype.Service;
@@ -48,4 +49,27 @@ public class StoreUserConverter {
             )
             .build();
     }
+
+    public StoreUserResponse toResponse(UserSession userSession) {
+        return StoreUserResponse.builder()
+            .user(
+                StoreUserResponse.UserResponse.builder()
+                    .id(userSession.getUserId())
+                    .email(userSession.getEmail())
+                    .status(userSession.getStatus())
+                    .role(userSession.getRole())
+                    .registeredAt(userSession.getRegisteredAt())
+                    .unregisteredAt(userSession.getUnregisteredAt())
+                    .lastLoginAt(userSession.getLastLoginAt())
+                    .build()
+            )
+            .store(
+                StoreUserResponse.StoreResponse.builder()
+                    .id(userSession.getStoreId())
+                    .name(userSession.getStoreName())
+                    .build()
+            )
+            .build();
+    }
+
 }
