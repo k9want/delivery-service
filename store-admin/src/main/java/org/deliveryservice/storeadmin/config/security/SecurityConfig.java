@@ -7,13 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity // security 활성화
 public class SecurityConfig {
 
-    private List<String> SWAGGER = List.of(
+    private final List<String> SWAGGER = List.of(
         "/swagger-ui/index.html",
         "/swagger-ui/**",
         "/v3/api-docs/**"
@@ -46,4 +48,9 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // hash로 암호화
+        return new BCryptPasswordEncoder();
+    }
 }
