@@ -18,6 +18,5 @@ public class HealthOpenApiController {
     @GetMapping("/health")
     public void health() {
         log.info("health call");
-        producer.producer("delivery.exchange", "delivery.key", "hello");
     }
 }

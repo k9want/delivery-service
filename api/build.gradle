@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
     implementation project(':db')
+    implementation project(':common')
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
