@@ -1,4 +1,4 @@
-package org.deliveryservice.storeadmin.domain.user.authorization;
+package org.deliveryservice.storeadmin.domain.authorization;
 
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -6,9 +6,8 @@ import org.delivery.db.store.StoreEntity;
 import org.delivery.db.store.StoreRepository;
 import org.delivery.db.store.enums.StoreStatus;
 import org.delivery.db.storeuser.StoreUserEntity;
-import org.deliveryservice.storeadmin.domain.user.authorization.model.UserSession;
+import org.deliveryservice.storeadmin.domain.authorization.model.UserSession;
 import org.deliveryservice.storeadmin.domain.user.service.StoreUserService;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

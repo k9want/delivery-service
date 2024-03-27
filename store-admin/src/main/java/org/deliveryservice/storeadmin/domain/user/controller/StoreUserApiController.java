@@ -2,7 +2,7 @@ package org.deliveryservice.storeadmin.domain.user.controller;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
-import org.deliveryservice.storeadmin.domain.user.authorization.model.UserSession;
+import org.deliveryservice.storeadmin.domain.authorization.model.UserSession;
 import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserResponse;
 import org.deliveryservice.storeadmin.domain.user.converter.StoreUserConverter;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

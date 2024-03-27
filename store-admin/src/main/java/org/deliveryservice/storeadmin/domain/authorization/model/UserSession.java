@@ -1,4 +1,4 @@
-package org.deliveryservice.storeadmin.domain.user.authorization.model;
+package org.deliveryservice.storeadmin.domain.authorization.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
