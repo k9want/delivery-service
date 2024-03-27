@@ -1,10 +1,10 @@
-package org.deliveryservice.storeadmin.domain.user.controller;
+package org.deliveryservice.storeadmin.domain.storeuser.controller;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.deliveryservice.storeadmin.domain.authorization.model.UserSession;
-import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserResponse;
-import org.deliveryservice.storeadmin.domain.user.converter.StoreUserConverter;
+import org.deliveryservice.storeadmin.domain.storeuser.controller.model.StoreUserResponse;
+import org.deliveryservice.storeadmin.domain.storeuser.converter.StoreUserConverter;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

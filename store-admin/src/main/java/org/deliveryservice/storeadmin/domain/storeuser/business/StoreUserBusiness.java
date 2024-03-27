@@ -1,4 +1,4 @@
-package org.deliveryservice.storeadmin.domain.user.business;
+package org.deliveryservice.storeadmin.domain.storeuser.business;
 
 
 import java.util.Optional;
@@ -7,10 +7,10 @@ import org.delivery.db.store.StoreEntity;
 import org.delivery.db.store.StoreRepository;
 import org.delivery.db.store.enums.StoreStatus;
 import org.delivery.db.storeuser.StoreUserEntity;
-import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserRegisterRequest;
-import org.deliveryservice.storeadmin.domain.user.controller.model.StoreUserResponse;
-import org.deliveryservice.storeadmin.domain.user.converter.StoreUserConverter;
-import org.deliveryservice.storeadmin.domain.user.service.StoreUserService;
+import org.deliveryservice.storeadmin.domain.storeuser.controller.model.StoreUserRegisterRequest;
+import org.deliveryservice.storeadmin.domain.storeuser.controller.model.StoreUserResponse;
+import org.deliveryservice.storeadmin.domain.storeuser.converter.StoreUserConverter;
+import org.deliveryservice.storeadmin.domain.storeuser.service.StoreUserService;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor

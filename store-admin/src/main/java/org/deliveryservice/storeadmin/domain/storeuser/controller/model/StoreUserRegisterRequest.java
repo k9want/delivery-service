@@ -1,4 +1,4 @@
-package org.deliveryservice.storeadmin.domain.user.controller.model;
+package org.deliveryservice.storeadmin.domain.storeuser.controller.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

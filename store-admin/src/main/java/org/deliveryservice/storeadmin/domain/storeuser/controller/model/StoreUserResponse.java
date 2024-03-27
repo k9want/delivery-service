@@ -1,4 +1,4 @@
-package org.deliveryservice.storeadmin.domain.user.controller.model;
+package org.deliveryservice.storeadmin.domain.storeuser.controller.model;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
